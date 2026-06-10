@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>400 Years of Canadian Technology</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Floating Hamburger Button -->
+  <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation">
+    <div class="hamburger-line"></div>
+    <div class="hamburger-line"></div>
+    <div class="hamburger-line"></div>
+  </button>
+
+  <!-- Navigation Overlay -->
+  <div class="nav-overlay" id="nav-overlay">
+    <div class="nav-menu">
+      <div class="nav-menu-title">Exhibition Navigation</div>
+      <a href="#" class="nav-link" data-slide="0">Title Slide</a>
+      <a href="#" class="nav-link" data-slide="1">Curatorial Statement</a>
+      <a href="#" class="nav-link" data-slide="2">Exhibition Overview</a>
+      
+      <a href="#" class="nav-link" data-slide="3">
+        1600s: The Canoe
+        <span class="nav-link-sub">Birchbark Canoe Gallery</span>
+      </a>
+      <a href="#" class="nav-link" data-slide="5">
+        1853: The Locomotive
+        <span class="nav-link-sub">Steam Locomotive Gallery</span>
+      </a>
+      <a href="#" class="nav-link" data-slide="7">
+        1906: Hydroelectric Power
+        <span class="nav-link-sub">Generator Turbine Gallery</span>
+      </a>
+      <a href="#" class="nav-link" data-slide="9">
+        1981: The Canadarm
+        <span class="nav-link-sub">Space Exploration Gallery</span>
+      </a>
+      <a href="#" class="nav-link" data-slide="11">
+        2003: The BlackBerry
+        <span class="nav-link-sub">Smartphone Gallery</span>
+      </a>
+      
+      <a href="#" class="nav-link" data-slide="13">Exhibition Summary</a>
+      <a href="#" class="nav-link" data-slide="15">Works Cited</a>
+    </div>
+  </div>
+
+  <canvas id="bgCanvas"></canvas>
+  <div class="bg-glow gold"></div>
+  <div class="bg-glow blue"></div>
+
+  <!-- ============ SLIDE 1: TITLE ============ -->
+  <section class="slide title-slide active" id="slide-0">
+    <h1 class="anim-2">400 Years of Canadian Technology</h1>
+    <div class="gold-line anim-3"></div>
+    <p class="subtitle anim-3">Five artifacts that engineered a nation, the journey from birch bark to BlackBerry</p>
+    <p class="year-range anim-3">1600s to Present</p>
+    <p class="credit anim-3">By Aayan Sikri - Interdisciplinary Courses</p>
+  </section>
+
+  <!-- ============ SLIDE 2: CURATORIAL INTRODUCTION ============ -->
+  <section class="slide intro-slide" id="slide-intro">
+    <div class="intro-container">
+      <div class="intro-left anim-1">
+        <span class="panel-header" style="margin-bottom:5px"><span class="era-badge">Curatorial Introduction</span></span>
+        <h2>Exhibition Theme</h2>
+        <p class="body-text" style="margin-top: 15px; font-size: 1.02rem; line-height: 1.6; color:#ddd; font-weight:300">
+          What defines a nation? Is it its borders, its laws, or the tools its people use to navigate the landscape? 
+          This exhibition explores Canada’s complex history through the lens of technology. 
+          As a curator, I believe that technology does not just help us in our daily lives, it dictates how we perceive, organize, and transform our environment. 
+          Depending on how it is deployed, technology can serve as a catalyst for sovereign independence, a bridge across vast distances, or a cause of social displacement.
+        </p>
+        <p class="body-text" style="margin-top: 15px; font-size: 1.02rem; line-height: 1.6; color:#ddd; font-weight:300">
+          Using the historical framework of <strong>Continuity and Change</strong>, we trace a four-century trajectory of the technologies that have shaped Canada. 
+          You will witness a shift in materials and scale, ranging from organic cedar and birch bark, to industrial iron and copper, all the way to aerospace alloys and silicon. 
+          Yet, beneath these changes lies a continuous theme: Canada’s struggle to overcome its geographic challenges, assert political sovereignty, and reconcile the ethical costs of national expansion.
+        </p>
+      </div>
+      <div class="intro-right anim-2">
+        <div class="curator-card">
+          <div class="curator-title">Curatorial Statement</div>
+          <div class="curator-field"><strong>Historical Lens</strong>Continuity and Change</div>
+          <div class="curator-field"><strong>Theme</strong>The advancement of technological systems throughout Canadian history</div>
+          <div class="curator-field"><strong>Inspiration</strong>A technology background driving the belief that tools significantly impact how humans interact and understand the environment around them.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 3: OVERVIEW ============ -->
+  <section class="slide overview-slide" id="slide-1">
+    <div style="width:100%;max-width:1000px">
+      <h2 class="anim-1">Exhibition Overview</h2>
+      <p class="body-text anim-2" style="max-width:700px;margin:12px 0 25px;color:#aaa">This exhibition traces Canada's
+        identity through five defining technologies, with each answering one of Murray Sinclair's guiding questions regarding
+        national identity.</p>
+      <div class="timeline anim-3">
+        <div class="timeline-item" onclick="goTo(3)">
+          <span class="timeline-era">1600s–1700s</span>
+          <div>
+            <div class="timeline-title">The Birchbark Canoe</div>
+            <div class="timeline-desc">"Where do I come from?" (First Peoples and Nouvelle-France)</div>
+          </div>
+        </div>
+        <div class="timeline-item" onclick="goTo(5)">
+          <span class="timeline-era">1853</span>
+          <div>
+            <div class="timeline-title">The Steam Locomotive <span style="color:#c9a84c">("Toronto" Engine)</span></div>
+            <div class="timeline-desc">"Where am I going?" (British North America)</div>
+          </div>
+        </div>
+        <div class="timeline-item" onclick="goTo(7)">
+          <span class="timeline-era">1906</span>
+          <div>
+            <div class="timeline-title">The Hydroelectric Generator Turbine</div>
+            <div class="timeline-desc">"Why am I here?" (Becoming a Sovereign Nation)</div>
+          </div>
+        </div>
+        <div class="timeline-item" onclick="goTo(9)">
+          <span class="timeline-era">1981</span>
+          <div>
+            <div class="timeline-title">The Canadarm <span style="color:#c9a84c">(SRMS)</span></div>
+            <div class="timeline-desc">"Who am I?" (Achievements and Challenges)</div>
+          </div>
+        </div>
+        <div class="timeline-item" onclick="goTo(11)">
+          <span class="timeline-era">2003</span>
+          <div>
+            <div class="timeline-title">The BlackBerry Smartphone <span style="color:#c9a84c">(RIM 6210)</span></div>
+            <div class="timeline-desc">"Who am I?" (Defining Contemporary Canada)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 3: CANOE IMAGES ============ -->
+  <section class="slide image-slide" id="slide-2">
+    <h2 class="anim-1">The Birchbark Canoe</h2>
+    <p class="slide-era anim-2">First Peoples & Nouvelle-France · 1600s–1700s</p>
+    <div class="image-grid three anim-3">
+      <div class="img-card"><img src="images/birchbark_canoe_1780679665378.png" alt="Birchbark canoe museum display">
+        <div class="caption">A museum display detailing the white cedar frame and birch bark hull</div>
+      </div>
+      <div class="img-card"><img src="images/canoe_detail_1780679740366.png" alt="Canoe construction detail">
+        <div class="caption">Detail: Spruce root stitching (watap) sealed with boiled pine resin</div>
+      </div>
+      <div class="img-card"><img src="images/canoe_waterway_1780679753421.png" alt="Canoe on Canadian waterway">
+        <div class="caption">Navigating the boreal waterways, which established the foundation of the fur trade</div>
+      </div>
+      <div class="fun-fact-card">
+        <h4>Did You Know?</h4>
+        <div class="divider"></div>
+        <div class="fact-text">Indigenous builders did not use nails or metal fasteners. Instead, the white cedar ribs were bent using boiling water and stitched together using split spruce roots. This helped create a structure that was both incredibly strong and flexible enough to bounce off river rocks.</div>
+        <div class="continue-hint">Tap anywhere or press space to continue</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 4: CANOE DIDACTIC ============ -->
+  <section class="slide" id="slide-3">
+    <div class="panel-slide">
+      <div class="panel-content">
+        <div class="panel-header anim-1">
+          <span class="era-badge">First Peoples & Nouvelle-France · 1600s–1700s</span>
+          <h2>The Birchbark Canoe</h2>
+          <p class="murray-q">"Where do I come from?"</p>
+        </div>
+        <div class="info-grid anim-2">
+          <div class="info-item">
+            <div class="info-label">Artifact</div>
+            <div class="info-value">Indigenous Birchbark Canoe</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Origin</div>
+            <div class="info-value">Eastern Woodlands (Eastern Canada) & boreal forest regions</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Materials</div>
+            <div class="info-value">White cedar frame, birch bark hull, spruce root stitching (watap), pine/spruce resin
+              sealant</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Period</div>
+            <div class="info-value">1600s–1700s (and centuries prior)</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Builders</div>
+            <div class="info-value">Algonquin, Anishinaabe, Haudenosaunee & Wolastoqiyik nations</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Users</div>
+            <div class="info-value">Indigenous nations; later French & British voyageurs, explorers, fur traders</div>
+          </div>
+          <div class="info-item" style="grid-column:1/-1">
+            <div class="info-label">Function</div>
+            <div class="info-value">Navigated complex, shallow, rapid-filled river networks. Lightweight design allowed
+              portaging between water systems.</div>
+          </div>
+        </div>
+        <div class="significance anim-3">
+          <h3>Historical Significance</h3>
+          <p>This artifact represents the foundational transportation technology of early Canada. The early Canadian
+            resource economy (the fur trade) and European exploration were mainly dependent on existing Indigenous
+            engineering. Without this technology, navigating the Canadian interior during the
+            Nouvelle-France era would have been impossible.</p>
+        </div>
+      </div>
+      <div class="panel-image"><img src="images/birchbark_canoe_1780679665378.png" alt="Birchbark Canoe"></div>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 5: LOCOMOTIVE IMAGES ============ -->
+  <section class="slide image-slide" id="slide-4">
+    <h2 class="anim-1">The Steam Locomotive</h2>
+    <p class="slide-era anim-2">British North America · 1853</p>
+    <div class="image-grid three anim-3">
+      <div class="img-card"><img src="https://torontorailwaymuseum.com/wp-content/uploads/2021/02/toronto.jpg" alt="Toronto steam locomotive">
+        <div class="caption">The "Toronto" Engine: the first steam locomotive built entirely in Canada in 1853</div>
+      </div>
+      <div class="img-card"><img src="images/locomotive_detail_1780679831132.png" alt="Locomotive wheel detail">
+        <div class="caption">Detail: Cast iron driving wheels, steel pistons & brass fittings</div>
+      </div>
+      <div class="img-card"><img src="https://www.metismuseum.ca/media/preview2.php?id=01819&maxwidth=820&maxheight=600" alt="Canadian railway expansion">
+        <div class="caption">Railway expansion across British North America, an important step in connecting North America</div>
+      </div>
+      <div class="fun-fact-card">
+        <h4>Did You Know?</h4>
+        <div class="divider"></div>
+        <div class="fact-text">The steam locomotive was named <i>Toronto</i> by the Ontario, Simcoe, and Huron Railroad to celebrate the milestone of manufacturing the first steam engine entirely in Canada. Prior to 1853, all locomotives had to be imported from Great Britain or the United States, so naming it after the city was a statement of local industrial capability and civic pride.</div>
+        <div class="continue-hint">Tap anywhere or press space to continue</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 6: LOCOMOTIVE DIDACTIC ============ -->
+  <section class="slide" id="slide-5">
+    <div class="panel-slide">
+      <div class="panel-content">
+        <div class="panel-header anim-1">
+          <span class="era-badge">British North America · 1853</span>
+          <h2>The Steam Locomotive <span style="font-size:.6em;opacity:.7">(The "Toronto" Engine)</span></h2>
+          <p class="murray-q">"Where am I going?"</p>
+        </div>
+        <div class="info-grid anim-2">
+          <div class="info-item">
+            <div class="info-label">Artifact</div>
+            <div class="info-value">A steam-powered railway locomotive</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Origin</div>
+            <div class="info-value">Toronto, Ontario: built at James Good's Toronto Locomotive Works</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Materials</div>
+            <div class="info-value">Heavy cast iron, structural steel, brass accents</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Year</div>
+            <div class="info-value">1853: the first locomotive constructed completely in Canada</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Makers</div>
+            <div class="info-value">Industrial machinists, engineers & blacksmiths at early urban foundries (metal factories)</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Users</div>
+            <div class="info-value">Railway operators, shipping companies & early Canadian passengers</div>
+          </div>
+          <div class="info-item" style="grid-column:1/-1">
+            <div class="info-label">Function</div>
+            <div class="info-value">Hauled heavy freight, raw agricultural materials & passengers across large distances
+              using high-pressure steam power.</div>
+          </div>
+        </div>
+        <div class="significance anim-3">
+          <h3>Historical Significance</h3>
+          <p>Steam locomotive technology was both the political and physical foundation of Confederation. It allowed
+            scattered colonies around Canada to unite into a single dominion through promised rail connections (the Intercolonial and
+            Canadian Pacific Railway). It represents Canada's push to overcome geographic distance, though
+            it directly accelerated the displacement of Indigenous populations in the West.</p>
+        </div>
+      </div>
+      <div class="panel-image"><img src="https://torontorailwaymuseum.com/wp-content/uploads/2021/01/unnamed-6.jpg" alt="Steam Locomotive"></div>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 7: HYDRO IMAGES ============ -->
+  <section class="slide image-slide" id="slide-6">
+    <h2 class="anim-1">The Hydroelectric Generator Turbine</h2>
+    <p class="slide-era anim-2">Becoming a Sovereign Nation · 1906</p>
+    <div class="image-grid three anim-3">
+      <div class="img-card"><img src="https://www.invisiblethreads.com/files/dyn/ph1024/200604/46417-20060427.jpg?ts=1710583701273" alt="Hydro-electric turbine">
+        <div class="caption">Generator turbine at the Toronto Power Generating Station, Niagara Falls</div>
+      </div>
+      <div class="img-card"><img src="images/hydro_copper_coils_1780679843339.png" alt="Copper coil windings">
+        <div class="caption">Detail: Massive copper coil windings converting kinetic energy to electricity</div>
+      </div>
+      <div class="img-card"><img src="https://www.niagaraparks.com/media/2023/10/0-T-c04-op2-02.jpg"
+          alt="Toronto Power Station exterior">
+        <div class="caption">Toronto Power Generating Station, featuring Beaux-Arts architecture at Niagara Falls</div>
+      </div>
+      <div class="fun-fact-card">
+        <h4>Did You Know?</h4>
+        <div class="divider"></div>
+        <div class="fact-text">The Toronto Power Generating Station was designed by E.J. Lennox in the Beaux-Arts architectural style to resemble a Roman temple, reflecting the era's belief that electricity was a form of civic divinity.</div>
+        <div class="continue-hint">Tap anywhere or press space to continue</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 8: HYDRO DIDACTIC ============ -->
+  <section class="slide" id="slide-7">
+    <div class="panel-slide">
+      <div class="panel-content">
+        <div class="panel-header anim-1">
+          <span class="era-badge">Becoming a Sovereign Nation · 1906</span>
+          <h2>The Hydroelectric Generator Turbine</h2>
+          <p class="murray-q">"Why am I here?"</p>
+        </div>
+        <div class="info-grid anim-2">
+          <div class="info-item">
+            <div class="info-label">Artifact</div>
+            <div class="info-value">A large-scale industrial hydroelectric generator turbine</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Origin</div>
+            <div class="info-value">Toronto Power Generating Station, Niagara Falls</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Materials</div>
+            <div class="info-value">Structural steel, cast-iron housing, thousands of feet of copper coil wiring</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Year</div>
+            <div class="info-value">1906</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Makers</div>
+            <div class="info-value">Industrial electrical engineering firms & heavy machinery plants</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Users</div>
+            <div class="info-value">Ontario Hydro & industrial factory operators & Canadian citizens</div>
+          </div>
+          <div class="info-item" style="grid-column:1/-1">
+            <div class="info-label">Function</div>
+            <div class="info-value">Captured the kinetic energy of falling river water, converting it into
+              high-voltage electrical energy to power growing cities and manufacturing sectors.</div>
+          </div>
+        </div>
+        <div class="significance anim-3">
+          <h3>Historical Significance</h3>
+          <p>Hydroelectric technology transformed Canada from a resource-exporting colony into an independent
+            industrial superpower. The ability to produce cheap and abundant electricity gave Canada economic
+            sovereignty from American and British coal imports. This power fueled the factories, mines, and mills that
+            established Canada's modern infrastructure and position on the world stage.</p>
+        </div>
+      </div>
+      <div class="panel-image"><img src="images/hydro_turbine_1780679688166.png" alt="Hydro-Electric Turbine"></div>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 9: CANADARM IMAGES ============ -->
+  <section class="slide image-slide" id="slide-8">
+    <h2 class="anim-1">The Canadarm (SRMS)</h2>
+    <p class="slide-era anim-2">Achievements & Challenges · 1981</p>
+    <div class="image-grid two anim-3" style="max-width:900px">
+      <div class="img-card"><img src="images/canadarm_space_1780679700830.png" alt="Canadarm deployed in space">
+        <div class="caption">Canadarm deployed from the Space Shuttle cargo bay with Earth visible below</div>
+      </div>
+      <div class="img-card"><img src="images/canadarm_iss_1780679790866.png" alt="Canadarm deploying satellite">
+        <div class="caption">SRMS grappling and deploying a satellite in orbit</div>
+      </div>
+      <div class="fun-fact-card">
+        <h4>Did You Know?</h4>
+        <div class="divider"></div>
+        <div class="fact-text">Despite being 50 feet in length and weighing 900 pounds, the Canadarm was designed to move with high precision in zero gravity. On Earth, however, it was so lightweight relative to its length that it could not even support its own weight!</div>
+        <div class="continue-hint">Tap anywhere or press space to continue</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 10: CANADARM DIDACTIC ============ -->
+  <section class="slide" id="slide-9">
+    <div class="panel-slide">
+      <div class="panel-content">
+        <div class="panel-header anim-1">
+          <span class="era-badge">Achievements & Challenges · 1981</span>
+          <h2>The Canadarm <span style="font-size:.6em;opacity:.7">(SRMS)</span></h2>
+          <p class="murray-q">"Who am I?"</p>
+        </div>
+        <div class="info-grid anim-2">
+          <div class="info-item">
+            <div class="info-label">Artifact</div>
+            <div class="info-value">Shuttle Remote Manipulator System (SRMS), commonly known as the Canadarm</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Origin</div>
+            <div class="info-value">Toronto, Ontario</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Materials</div>
+            <div class="info-value">Carbon fiber, titanium, stainless steel, aerospace circuitry, synthetic thermal
+              blankets</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Period</div>
+            <div class="info-value">Developed 1970s; first flight November 13, 1981</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Makers</div>
+            <div class="info-value">SPAR Aerospace engineers (aerospace and technology company) with National Research Council of Canada (NRCC)</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Users</div>
+            <div class="info-value">International NASA astronaut crews including Canadian astronauts</div>
+          </div>
+          <div class="info-item" style="grid-column:1/-1">
+            <div class="info-label">Function</div>
+            <div class="info-value">Deployed on shuttles to capture, repair & launch satellites, maneuver astronauts
+              during spacewalks, and physically assemble the International Space Station.</div>
+          </div>
+        </div>
+        <div class="significance anim-3">
+          <h3>Historical Significance</h3>
+          <p>The Canadarm redefined Canada's modern international identity as we know it. It shifted global perception
+            of Canada from a country focused on just raw natural resources to a sophisticated leader in technology, 
+            innovation, robotics, and space exploration. It remains an enduring icon of Canadian national pride and 
+            international scientific cooperation.</p>
+        </div>
+      </div>
+      <div class="panel-image"><img src="https://upload.wikimedia.org/wikipedia/commons/6/61/Canadarm_1_-_STS-72.jpg" alt="Canadarm"></div>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 11: BLACKBERRY IMAGES ============ -->
+  <section class="slide image-slide" id="slide-10">
+    <h2 class="anim-1">The BlackBerry Smartphone</h2>
+    <p class="slide-era anim-2">Defining Contemporary Canada · 2003</p>
+    <div class="image-grid two anim-3" style="max-width:900px">
+      <div class="img-card"><img src="https://d-cb.jc-cdn.com/sites/crackberry.com/files/styles/large/public/article_images/2016/05/blackberry-6210-g2g-800.jpg" alt="BlackBerry 6210">
+        <div class="caption">BlackBerry 6210, the device that introduced innovative technology to Canada</div>
+      </div>
+      <div class="img-card"><img src="https://images.stockcake.com/public/f/9/d/f9d00f5c-7186-4ad3-9dd0-93e41ff72134_large/busy-corporate-office-stockcake.jpg" alt="BlackBerry in use">
+        <div class="caption">The "CrackBerry" era, which transformed global corporate communication</div>
+      </div>
+      <div class="fun-fact-card">
+        <h4>Did You Know?</h4>
+        <div class="divider"></div>
+        <div class="fact-text">The signature tactile keyboard was designed after research showed that physical clicks reduced typing errors, had better accuracy, and allowed for less use of data (better battery life). Its key shapes were modeled after tiny seeds, giving the device its fruit-inspired 'BlackBerry' name.</div>
+        <div class="continue-hint">Tap anywhere or press space to continue</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 12: BLACKBERRY DIDACTIC ============ -->
+  <section class="slide" id="slide-11">
+    <div class="panel-slide">
+      <div class="panel-content">
+        <div class="panel-header anim-1">
+          <span class="era-badge">Defining Contemporary Canada · 2003</span>
+          <h2>The BlackBerry Smartphone <span style="font-size:.6em;opacity:.7">(RIM 6210)</span></h2>
+          <p class="murray-q">"Who am I?"</p>
+        </div>
+        <div class="info-grid anim-2">
+          <div class="info-item">
+            <div class="info-label">Artifact</div>
+            <div class="info-value">A BlackBerry handheld mobile smartphone</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Origin</div>
+            <div class="info-value">Waterloo, Ontario</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Materials</div>
+            <div class="info-value">Injection-molded plastic, LCD glass screen, circuit board, copper wiring, microchip
+              processors</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Year</div>
+            <div class="info-value">2003: the first to combine calls, email & SMS without headset</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Maker</div>
+            <div class="info-value">Research In Motion (RIM), BlackBerry</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Users</div>
+            <div class="info-value">Company executives, politicians, world leaders & global citizens</div>
+          </div>
+          <div class="info-item" style="grid-column:1/-1">
+            <div class="info-label">Function</div>
+            <div class="info-value">Wireless real-time "push" email delivery, text messaging, mobile web browsing &
+              instant communication via BlackBerry Messenger (BBM).</div>
+          </div>
+        </div>
+        <div class="significance anim-3">
+          <h3>Historical Significance</h3>
+          <p>The BlackBerry 6210 put Canada at the center of the modern digital communication revolution,
+            further innovating on the concept of the modern smartphone. It represents contemporary Canada's role as
+            a global technology hub, illustrating how a Canadian invention permanently transformed the way our society
+            interacts and communicates across the world.</p>
+        </div>
+      </div>
+      <div class="panel-image"><img src="images/blackberry_phone_1780679713599.png" alt="BlackBerry 6210"></div>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 13: SUMMARY ============ -->
+  <section class="slide" id="slide-12">
+    <div style="width:100%;max-width:1000px;margin:0 auto;text-align:center">
+      <div class="maple-icon anim-1" style="display:inline-flex;justify-content:center;align-items:center;margin-bottom:25px">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L22 12L12 22L2 12L12 2Z" fill="#c9a84c" opacity="0.8"/>
+        </svg>
+      </div>
+      <h2 class="anim-1" style="margin-bottom:8px">Exhibition Summary</h2>
+      <div class="gold-line anim-2"></div>
+      <p class="body-text anim-2" style="max-width:700px;margin:15px auto 30px;color:#aaa">From early watercraft systems to
+        global digital communication, these five artifacts showcase Canada's technological evolution, revealing a new narrative of Canadian identity.</p>
+      <div class="timeline anim-3" style="text-align:left">
+        <div class="timeline-item" onclick="goTo(3)">
+          <span class="timeline-era" style="color:#c9a84c">1600s</span>
+          <div>
+            <div class="timeline-title">Birchbark Canoe</div>
+            <div class="timeline-desc">Indigenous engineering built the foundation: organic, sustainable, and
+              brilliant.</div>
+          </div>
+        </div>
+        <div class="timeline-item" onclick="goTo(5)">
+          <span class="timeline-era" style="color:#c9a84c">1853</span>
+          <div>
+            <div class="timeline-title">Steam Locomotive</div>
+            <div class="timeline-desc">Iron and steam forged a confederation, uniting colonies across impossible
+              distances.</div>
+          </div>
+        </div>
+        <div class="timeline-item" onclick="goTo(7)">
+          <span class="timeline-era" style="color:#c9a84c">1906</span>
+          <div>
+            <div class="timeline-title">Hydro-Electric Turbine</div>
+            <div class="timeline-desc">Harnessing nature's power granted Canada economic sovereignty and industrial
+              independence.</div>
+          </div>
+        </div>
+        <div class="timeline-item" onclick="goTo(9)">
+          <span class="timeline-era" style="color:#c9a84c">1981</span>
+          <div>
+            <div class="timeline-title">Canadarm</div>
+            <div class="timeline-desc">Reaching beyond the atmosphere, Canada proved itself a leader in global
+              innovation.</div>
+          </div>
+        </div>
+        <div class="timeline-item" onclick="goTo(11)">
+          <span class="timeline-era" style="color:#c9a84c">2003</span>
+          <div>
+            <div class="timeline-title">BlackBerry</div>
+            <div class="timeline-desc">A Canadian invention in every pocket, permanently reshaping how humanity
+              communicates.</div>
+          </div>
+        </div>
+      </div>
+      <p class="body-text anim-4" style="margin-top:25px;color:#888;font-style:italic">Each object answers one of Murray
+        Sinclair's questions; together, they answer all four.</p>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 14: THANK YOU ============ -->
+  <section class="slide title-slide" id="slide-13">
+    <div class="maple-icon anim-1" style="display:inline-flex;justify-content:center;align-items:center;margin-bottom:25px">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L22 12L12 22L2 12L12 2Z" fill="#c9a84c" opacity="0.8"/>
+      </svg>
+    </div>
+    <h1 class="anim-2" style="font-size:clamp(2rem,4.5vw,3.5rem)">Thank You</h1>
+    <div class="gold-line anim-3"></div>
+    <p class="subtitle anim-3">400 Years of Canadian Technology</p>
+    <p class="body-text anim-4" style="margin-top:20px;color:#888;max-width:500px;text-align:center">Five objects through the span of four
+      centuries. A journey of Canadian Ingenuity.</p>
+    <p class="credit anim-4" style="margin-top:30px">By Aayan Sikri - Interdisciplinary Course</p>
+  </section>
+
+  <!-- ============ SLIDE 15: WORKS CITED ============ -->
+  <section class="slide" id="slide-14">
+    <div style="width:100%;max-width:1100px;margin:0 auto">
+      <h2 class="anim-1" style="text-align:center;margin-bottom:8px">Works Cited</h2>
+      <div class="gold-line anim-2"></div>
+      <div class="references-grid anim-3">
+        <div class="ref-category">
+          <h3>1. The Birchbark Canoe</h3>
+          <div class="ref-entry">Agency, Parks Canada. “Traditional Mi’kmaw Birchbark Canoes.” Parks Canada, Government of Canada, 6 May 2026, <a href="https://parks.canada.ca/pn-np/ns/kejimkujik/culture/autochtone-indigenous/canot-canoe" target="_blank" rel="noopener noreferrer">parks.canada.ca/pn-np/ns/kejimkujik/culture/autochtone-indigenous/canot-canoe</a>.</div>
+          <div class="ref-entry">Marsh, James H. “Birchbark Canoe.” The Canadian Encyclopedia, 29 May 2006, <a href="https://thecanadianencyclopedia.ca/en/article/birchbark-canoe" target="_blank" rel="noopener noreferrer">thecanadianencyclopedia.ca/en/article/birchbark-canoe</a>.</div>
+        </div>
+        <div class="ref-category">
+          <h3>2. The Steam Locomotive ("Toronto" Engine)</h3>
+          <div class="ref-entry">Institute, Gabriel Dumont. “Canada, Canadian Pacific Railway, 1885.” The Virtual Museum of Métis History and Culture, Gabriel Dumont Institute, 15 Sept. 2009, <a href="https://www.metismuseum.ca/resource.php/01819" target="_blank" rel="noopener noreferrer">www.metismuseum.ca/resource.php/01819</a>.</div>
+          <div class="ref-entry">Morningstar, Brian. “A Locomotive Called Toronto.” Toronto Railway Museum, Toronto Railway Historical Association, 8 Apr. 2021, <a href="https://torontorailwaymuseum.com/locomotive-called-toronto/" target="_blank" rel="noopener noreferrer">torontorailwaymuseum.com/locomotive-called-toronto/</a>.</div>
+        </div>
+        <div class="ref-category">
+          <h3>3. The Hydroelectric Generator Turbine</h3>
+          <div class="ref-entry">Generation, Ontario Power. “Hydroelectric Power.” Ontario Power Generation, 2026, <a href="https://www.opg.com/power-generation/our-power/hydro/" target="_blank" rel="noopener noreferrer">www.opg.com/power-generation/our-power/hydro/</a>.</div>
+          <div class="ref-entry">Parks, Niagara. “Toronto Power Generating Station.” Niagara Parks, Government of Ontario, 2026, <a href="https://www.niagaraparks.com/torontopower" target="_blank" rel="noopener noreferrer">www.niagaraparks.com/torontopower</a>.</div>
+        </div>
+        <div class="ref-category">
+          <h3>4. The Canadarm (SRMS)</h3>
+          <div class="ref-entry">Agency, Canadian Space. “Canadarm.” Canada.Ca, Government of Canada, 23 Jan. 2024, <a href="https://www.asc-csa.gc.ca/eng/canadarm" target="_blank" rel="noopener noreferrer">www.asc-csa.gc.ca/eng/canadarm</a>.</div>
+          <div class="ref-entry">Agency, Canadian Space. “Canadian Space Agency (CSA) - Space Science & Space Technology.” Canada.Ca, Government of Canada, 23 Apr. 2026, <a href="https://www.asc-csa.gc.ca/eng/" target="_blank" rel="noopener noreferrer">www.asc-csa.gc.ca/eng/</a>.</div>
+        </div>
+        <div class="ref-category" style="grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+          <div>
+            <h3>5. The BlackBerry Smartphone (RIM 6210)</h3>
+            <div class="ref-entry">Limited, BlackBerry. “BlackBerry: Two Divisions Focused on Security, Trust, and Innovation.” BlackBerry, 2026, <a href="https://www.blackberry.com/en" target="_blank" rel="noopener noreferrer">www.blackberry.com/en</a>.</div>
+            <div class="ref-entry">McNish, Jacquie, and Sean Silcoff. “Losing The Signal.” HarperCollins Canada, 1 Oct. 2025, <a href="https://www.harpercollins.ca/9781443436182/losing-the-signal/" target="_blank" rel="noopener noreferrer">www.harpercollins.ca/9781443436182/losing-the-signal/</a>.</div>
+          </div>
+          <div style="display: flex; align-items: flex-end; justify-content: flex-end; padding-bottom: 12px;">
+            <span style="font-size: 0.75rem; color: #666; font-style: italic;">All citations in MLA 9 format.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 16: RESTART SCREEN ============ -->
+  <section class="slide" id="slide-15" style="text-align:center">
+    <div style="width:100%;max-width:800px;margin:0 auto">
+      <div class="maple-icon anim-1" style="display:inline-flex;justify-content:center;align-items:center;margin-bottom:25px">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L22 12L12 22L2 12L12 2Z" fill="#c9a84c" opacity="0.8"/>
+        </svg>
+      </div>
+      <h2 class="anim-1" style="margin-bottom:15px">You have reached the end of the presentation</h2>
+      <p class="body-text anim-2" style="color:#aaa;max-width:550px;margin:0 auto 30px">
+        Select an option below to restart the exhibition journey or return to the references page.
+      </p>
+      <div class="restart-container anim-3">
+        <button class="restart-btn" onclick="goTo(0)">Restart Exhibition</button>
+        <button class="stay-btn" onclick="goTo(15)">Return to Works Cited</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIME-TRAVEL GRANDFATHER CLOCK OVERLAY -->
+  <div class="time-clock-overlay" id="timeClockOverlay">
+    <div class="clock-face">
+      <div class="clock-center"></div>
+      <div class="clock-hand hour"></div>
+      <div class="clock-hand minute"></div>
+    </div>
+    <div class="clock-pendulum-container">
+      <div class="pendulum-rod">
+        <div class="pendulum-bob"></div>
+      </div>
+    </div>
+    <div class="time-destination" id="timeDestination">1600s</div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="slide-nav" id="slideNav" style="transition: opacity 0.3s ease"></nav>
+  <div class="slide-counter" id="slideCounter" style="transition: opacity 0.3s ease">01 / 17</div>
+  <div class="key-hint" style="transition: opacity 0.3s ease">← → or Space to navigate</div>
+
+  <script>
+    const TOTAL = 17, slides = document.querySelectorAll('.slide');
+    let cur = 0, animating = false;
+
+    // Slide labels for nav tooltips
+    const labels = [
+      'Title', 'Introduction', 'Overview', 'Canoe Gallery', 'Canoe Didactic', 
+      'Locomotive Gallery', 'Locomotive Didactic', 'Hydro Gallery', 'Hydro Didactic', 
+      'Canadarm Gallery', 'Canadarm Didactic', 'BlackBerry Gallery', 'BlackBerry Didactic', 
+      'Summary', 'Thank You', 'References', 'Restart'
+    ];
+    const groups = [0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7];
+
+    const yearTexts = [
+      'START',
+      'THEME',
+      'OVERVIEW',
+      '1600s', '1600s',
+      '1853', '1853',
+      '1906', '1906',
+      '1981', '1981',
+      '2003', '2003',
+      'SUMMARY',
+      'END',
+      'CITATIONS',
+      'RESTART'
+    ];
+
+    // Build nav dots
+    const nav = document.getElementById('slideNav');
+    let lastGroup = -1;
+    for (let i = 0; i < TOTAL; i++) {
+      if (groups[i] !== lastGroup && lastGroup !== -1) {
+        const sep = document.createElement('div');
+        sep.className = 'nav-separator';
+        nav.appendChild(sep);
+      }
+      lastGroup = groups[i];
+      const dot = document.createElement('div');
+      dot.className = 'nav-dot' + (i % 2 === 1 && i > 2 && i < 13 ? ' image-dot' : i % 2 === 0 && i > 2 && i < 13 ? ' panel-dot' : '');
+      if (i === 0) dot.classList.add('active');
+      dot.innerHTML = '<span class="nav-label">' + labels[i] + '</span>';
+      dot.addEventListener('click', () => goTo(i));
+      dot.dataset.index = i;
+      nav.appendChild(dot);
+    }
+
+    function updateUIElements(n) {
+      const isRestart = (n === 16);
+      const nav = document.getElementById('slideNav');
+      const counter = document.getElementById('slideCounter');
+      const hint = document.querySelector('.key-hint');
+      
+      if (isRestart) {
+        nav.style.opacity = '0';
+        nav.style.pointerEvents = 'none';
+        counter.style.opacity = '0';
+        hint.style.opacity = '0';
+      } else {
+        nav.style.opacity = '1';
+        nav.style.pointerEvents = 'auto';
+        counter.style.opacity = '1';
+        hint.style.opacity = '1';
+      }
+    }
+
+    function goTo(n) {
+      if (n === cur || animating || n < 0 || n >= TOTAL) return;
+      animating = true;
+
+      const shouldAnimateClock = (groups[n] !== groups[cur]);
+
+      if (shouldAnimateClock) {
+        const overlay = document.getElementById('timeClockOverlay');
+        const destLabel = document.getElementById('timeDestination');
+        destLabel.textContent = yearTexts[n];
+
+        // Reset overlay animations by triggering a reflow
+        overlay.classList.remove('active');
+        void overlay.offsetWidth;
+        overlay.classList.add('active');
+
+        // Swap slides halfway through the time clock transition
+        setTimeout(() => {
+          const prev = slides[cur];
+          prev.classList.remove('active');
+          prev.classList.remove('show-fact'); // Ensure fun-fact class is reset
+          
+          if (n === cur - 1 && slides[n].classList.contains('image-slide')) {
+            slides[n].classList.add('show-fact');
+          } else {
+            slides[n].classList.remove('show-fact');
+          }
+
+          cur = n;
+          slides[cur].classList.add('active');
+
+          // Update dots
+          nav.querySelectorAll('.nav-dot').forEach((d, i) => {
+            d.classList.toggle('active', i === cur);
+          });
+
+          document.getElementById('slideCounter').textContent = String(cur + 1).padStart(2, '0') + ' / ' + TOTAL;
+          updateUIElements(cur);
+        }, 350);
+
+        // Finish transition
+        setTimeout(() => {
+          overlay.classList.remove('active');
+          animating = false;
+        }, 700);
+      } else {
+        // Just fade between slides of the same era/group
+        const prev = slides[cur];
+        prev.classList.remove('active');
+        prev.classList.remove('show-fact'); // Ensure fun-fact class is reset
+        
+        if (n === cur - 1 && slides[n].classList.contains('image-slide')) {
+          slides[n].classList.add('show-fact');
+        } else {
+          slides[n].classList.remove('show-fact');
+        }
+
+        cur = n;
+        slides[cur].classList.add('active');
+
+        // Update dots
+        nav.querySelectorAll('.nav-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === cur);
+        });
+
+        document.getElementById('slideCounter').textContent = String(cur + 1).padStart(2, '0') + ' / ' + TOTAL;
+        updateUIElements(cur);
+
+        setTimeout(() => {
+          animating = false;
+        }, 400); // Allow slide fade-in to complete
+      }
+    }
+
+    function handleNext() {
+      const activeSlide = slides[cur];
+      if (activeSlide.classList.contains('image-slide')) {
+        if (!activeSlide.classList.contains('show-fact')) {
+          activeSlide.classList.add('show-fact');
+          return;
+        }
+      }
+      goTo(cur + 1);
+    }
+
+    function handlePrev() {
+      const activeSlide = slides[cur];
+      if (activeSlide.classList.contains('image-slide')) {
+        if (activeSlide.classList.contains('show-fact')) {
+          activeSlide.classList.remove('show-fact');
+          return;
+        }
+      }
+      goTo(cur - 1);
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { 
+        e.preventDefault(); 
+        handleNext(); 
+      }
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { 
+        e.preventDefault(); 
+        handlePrev(); 
+      }
+    });
+
+    // Hamburger Menu & Navigation Overlay Logic
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const navOverlay = document.getElementById('nav-overlay');
+    
+    hamburgerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = navOverlay.classList.contains('open');
+      if (isOpen) {
+        navOverlay.classList.remove('open');
+        hamburgerBtn.classList.remove('active');
+      } else {
+        navOverlay.classList.add('open');
+        hamburgerBtn.classList.add('active');
+      }
+    });
+    
+    // Close overlay when clicking a navigation link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const slideIndex = parseInt(link.dataset.slide, 10);
+        goTo(slideIndex);
+        navOverlay.classList.remove('open');
+        hamburgerBtn.classList.remove('active');
+      });
+    });
+    
+    // Close overlay if clicking outside the menu container
+    navOverlay.addEventListener('click', (e) => {
+      if (e.target === navOverlay) {
+        navOverlay.classList.remove('open');
+        hamburgerBtn.classList.remove('active');
+      }
+    });
+
+    // Touch swipe support (supporting both horizontal and vertical directions)
+    let touchStartX = 0;
+    let touchStartY = 0;
+    
+    document.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    });
+    
+    document.addEventListener('touchend', e => {
+      // Ignore swipe changes if the menu overlay is open
+      if (navOverlay.classList.contains('open')) return;
+
+      // Allow internal scrolling on mobile instead of page turning
+      let parent = e.target;
+      while (parent && parent !== document.body) {
+        if (parent.scrollHeight > parent.clientHeight) {
+          const style = window.getComputedStyle(parent);
+          if (style.overflowY === 'auto' || style.overflowY === 'scroll') {
+            return; // Exit swipe navigation to let scroll happen
+          }
+        }
+        parent = parent.parentElement;
+      }
+
+      const diffX = touchStartX - e.changedTouches[0].clientX;
+      const diffY = touchStartY - e.changedTouches[0].clientY;
+      
+      // Determine if horizontal or vertical swipe has greater magnitude
+      if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX > 0) {
+          handleNext(); // Swipe left -> advance
+        } else {
+          handlePrev(); // Swipe right -> go back
+        }
+      } 
+      else if (Math.abs(diffY) > 50 && Math.abs(diffY) > Math.abs(diffX)) {
+        if (diffY > 0) {
+          handleNext(); // Swipe up -> advance
+        } else {
+          handlePrev(); // Swipe down -> go back
+        }
+      }
+    });
+
+    // Tap/Click anywhere to advance navigation (excluding interactive elements)
+    document.addEventListener('click', e => {
+      // Ignore clicks if the menu overlay is open
+      if (navOverlay.classList.contains('open')) return;
+
+      // Check if clicking links, buttons, timeline cards, dots, or the hamburger
+      const isInteractive = e.target.closest('a, button, input, textarea, select, .nav-dot, .timeline-item, .hamburger-btn, .restart-btn, .stay-btn');
+      if (isInteractive) return;
+
+      handleNext();
+    });
+  </script>
+
+  <script>
+    // ===== DYNAMIC BACKGROUND PARTICLES =====
+    const canvas = document.getElementById('bgCanvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, mouseX = 0, mouseY = 0;
+
+    function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight }
+    window.addEventListener('resize', resize); resize();
+    document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY });
+
+    // Floating particles
+    const particles = [];
+    const PCOUNT = 60;
+    for (let i = 0; i < PCOUNT; i++) {
+      particles.push({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3,
+        r: Math.random() * 2 + .5,
+        o: Math.random() * .3 + .05,
+        gold: Math.random() > .6
+      });
+    }
+
+    // Slow ambient orbs
+    const orbs = [
+      { x: W * .2, y: H * .3, r: 180, vx: .15, vy: .1, hue: 40, sat: 60, light: 50, o: .025 },
+      { x: W * .8, y: H * .7, r: 220, vx: -.12, vy: -.08, hue: 220, sat: 40, light: 45, o: .02 },
+      { x: W * .5, y: H * .5, r: 150, vx: .08, vy: -.12, hue: 35, sat: 50, light: 55, o: .018 }
+    ];
+
+    // Subtle grid lines
+    const gridLines = [];
+    for (let i = 0; i < 8; i++) {
+      gridLines.push({
+        x: Math.random() * W, y: Math.random() * H,
+        len: Math.random() * 200 + 100,
+        angle: Math.random() * Math.PI * 2,
+        speed: (Math.random() - .5) * .002,
+        drift: (Math.random() - .5) * .2,
+        o: Math.random() * .06 + .02
+      });
+    }
+
+    function drawParticles(t) {
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        // Gentle mouse repulsion
+        const dx = p.x - mouseX, dy = p.y - mouseY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 150) {
+          p.vx += dx / dist * .02;
+          p.vy += dy / dist * .02;
+        }
+        p.x += p.vx; p.y += p.vy;
+        // Dampen
+        p.vx *= .999; p.vy *= .999;
+        // Wrap
+        if (p.x < -10) p.x = W + 10; if (p.x > W + 10) p.x = -10;
+        if (p.y < -10) p.y = H + 10; if (p.y > H + 10) p.y = -10;
+        // Pulse opacity
+        const pulse = Math.sin(t * .001 + i) * .5 + .5;
+        const alpha = p.o * (.6 + pulse * .4);
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = p.gold ? `rgba(201,168,76,${alpha})` : `rgba(180,190,210,${alpha})`;
+        ctx.fill();
+      }
+      // Connection lines between nearby particles
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const a = particles[i], b = particles[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const d = dx * dx + dy * dy;
+          if (d < 18000) {
+            const alpha = .04 * (1 - d / 18000);
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = `rgba(201,168,76,${alpha})`;
+            ctx.lineWidth = .5;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function drawOrbs(t) {
+      for (const o of orbs) {
+        o.x += o.vx; o.y += o.vy;
+        if (o.x < -o.r || o.x > W + o.r) o.vx *= -1;
+        if (o.y < -o.r || o.y > H + o.r) o.vy *= -1;
+        const pulse = Math.sin(t * .0005) * .3 + .7;
+        const grad = ctx.createRadialGradient(o.x, o.y, 0, o.x, o.y, o.r);
+        grad.addColorStop(0, `hsla(${o.hue},${o.sat}%,${o.light}%,${o.o * pulse})`);
+        grad.addColorStop(1, `hsla(${o.hue},${o.sat}%,${o.light}%,0)`);
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(o.x, o.y, o.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function drawGrid(t) {
+      for (const g of gridLines) {
+        g.angle += g.speed;
+        g.x += g.drift; g.y += g.drift * .5;
+        if (g.x < -200) g.x = W + 200; if (g.x > W + 200) g.x = -200;
+        if (g.y < -200) g.y = H + 200; if (g.y > H + 200) g.y = -200;
+        const pulse = Math.sin(t * .0008 + g.angle) * .5 + .5;
+        ctx.save();
+        ctx.translate(g.x, g.y);
+        ctx.rotate(g.angle);
+        ctx.beginPath();
+        ctx.moveTo(-g.len / 2, 0); ctx.lineTo(g.len / 2, 0);
+        ctx.strokeStyle = `rgba(201,168,76,${g.o * pulse})`;
+        ctx.lineWidth = .5;
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    function animate(t) {
+      ctx.clearRect(0, 0, W, H);
+      drawOrbs(t);
+      drawGrid(t);
+      drawParticles(t);
+      requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+  </script>
+</body>
+
+</html>
